@@ -36,26 +36,26 @@ var commands = map[string]cmd.Cmd{
 
 // entrypoint
 func main() {
-	// create app
-	temporal := cmd.New(commands, cmd.Config{
-		Name:     "Temporal",
-		ExecName: "temporal",
-		Version:  Version,
-		Desc:     "Temporal is an easy-to-use interface into distributed and decentralized storage technologies for personal and enterprise use cases.",
-	})
+  // create app
+  temporal := cmd.New(commands, cmd.Config{
+    Name:     "Temporal",
+    ExecName: "temporal",
+    Version:  Version,
+    Desc:     "Temporal is an easy-to-use interface into distributed and decentralized storage technologies for personal and enterprise use cases.",
+  })
 
-	// run no-config commands. exit if a command was executed
-	if exit := temporal.PreRun(os.Args[1:]); exit == cmd.CodeOK {
-		os.Exit(0)
-	}
+  // run no-config commands. exit if a command was executed
+  if exit := temporal.PreRun(os.Args[1:]); exit == cmd.CodeOK {
+    os.Exit(0)
+  }
 
-	// load config
-	tCfg, _ := config.LoadConfig("path/to/config")
+  // load config
+  tCfg, _ := config.LoadConfig("path/to/config")
 
-	// load arguments
-	flags := map[string]string{ /* ... */ }
+  // load arguments
+  flags := map[string]string{ /* ... */ }
 
-	// execute
-	os.Exit(temporal.Run(*tCfg, flags, os.Args[1:]))
+  // execute
+  os.Exit(temporal.Run(*tCfg, flags, os.Args[1:]))
 }
 ```
