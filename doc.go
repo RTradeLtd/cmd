@@ -1,2 +1,3 @@
-// Package cmd contains Temporal's lightweight CLI framework
+// Package cmd provides a microframework for building CLI tools integrated with
+// Temporal (https://github.com/RTradeLtd/Temporal) configuration
 package cmd
