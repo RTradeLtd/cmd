@@ -3,7 +3,7 @@ package cmd
 import (
 	"testing"
 
-	"github.com/RTradeLtd/Temporal/config"
+	"github.com/RTradeLtd/config"
 )
 
 func TestNew(t *testing.T) {
