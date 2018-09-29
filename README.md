@@ -15,27 +15,20 @@ import (
 
 // define commands
 var commands = map[string]cmd.Cmd{
-	"api": cmd.Cmd{
-		Blurb:       "start Temporal api server",
-		Description: "Start the API service used to interact with Temporal. Run with DEBUG=true to enable debug messages.",
-		Action: func(cfg config.TemporalConfig, args map[string]string) { /* ... */ },
-	},
-	"queue": cmd.Cmd{
-		Blurb:         "execute commands for various queues",
-		Description:   "Interact with Temporal's various queue APIs",
-		ChildRequired: true,
-		Children: map[string]cmd.Cmd{
-			"ipfs": cmd.Cmd{
-				Blurb:         "IPFS queue sub commands",
-				Description:   "Used to launch the various queues that interact with IPFS",
-				ChildRequired: true,
-				Children: map[string]cmd.Cmd{
-					"ipns-entry": cmd.Cmd{
-						Blurb:       "IPNS entry creation queue",
-						Description: "Listens to requests to create IPNS records",
-						Action: func(cfg config.TemporalConfig, args map[string]string) { /* ... */ },
-          },
-        },
+  "api": cmd.Cmd{
+    Blurb:       "start Temporal api server",
+    Description: "Start the API service used to interact with Temporal. Run with DEBUG=true to enable debug messages.",
+    Action: func(cfg config.TemporalConfig, args map[string]string) { /* ... */ },
+  },
+  "queue": cmd.Cmd{
+    Blurb:         "execute commands for various queues",
+    Description:   "Interact with Temporal's various queue APIs",
+    ChildRequired: true,
+    Children: map[string]cmd.Cmd{
+      "ipns-entry": cmd.Cmd{
+        Blurb:       "IPNS entry creation queue",
+        Description: "Listens to requests to create IPNS records",
+        Action: func(cfg config.TemporalConfig, args map[string]string) { /* ... */ },
       },
     },
   },
