@@ -101,6 +101,10 @@ func (a *App) Run(cfg config.TemporalConfig, flags map[string]string, args []str
 		args = a.cfg.Options.Args()
 	}
 
+	if flags == nil {
+		flags = map[string]string{}
+	}
+
 	if noop := run(a.cmds, cfg, flags, args, a.cfg.Options); noop {
 		a.noop(args)
 		return CodeNoOp

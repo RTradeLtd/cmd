@@ -103,10 +103,10 @@ func TestApp_Run(t *testing.T) {
 		args []string
 	}
 	tests := []struct {
-		name      string
-		fields    fields
-		args      args
-		wantFound bool
+		name    string
+		fields  fields
+		args    args
+		wantRun bool
 	}{
 		{
 			"help command should run",
@@ -139,15 +139,32 @@ func TestApp_Run(t *testing.T) {
 			args{[]string{"me", "too", "wow"}},
 			true,
 		},
+		{
+			"should not run without required args",
+			fields{Config{}, map[string]Cmd{"hi": Cmd{
+				Args:   []string{"hello", "world"},
+				Action: func(config.TemporalConfig, map[string]string) {},
+			}}},
+			args{[]string{"hi"}},
+			false,
+		},
+		{
+			"should run with required args",
+			fields{Config{}, map[string]Cmd{"hi": Cmd{
+				Args:   []string{"hello", "world"},
+				Action: func(config.TemporalConfig, map[string]string) {},
+			}}},
+			args{[]string{"hi", "bobhead", "postables"}},
+			true,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			a := New(tt.fields.cmds, tt.fields.cfg)
 			exit := a.Run(config.TemporalConfig{}, nil, tt.args.args)
-
-			if (exit == 0) != tt.wantFound {
+			if (exit == 0) != tt.wantRun {
 				t.Errorf("expected command run to be %v, got %v",
-					tt.wantFound, (exit == 0))
+					tt.wantRun, (exit == 0))
 			}
 		})
 	}
