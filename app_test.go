@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"flag"
 	"testing"
 
 	"github.com/RTradeLtd/config"
@@ -95,6 +96,9 @@ func TestApp_PreRun(t *testing.T) {
 }
 
 func TestApp_Run(t *testing.T) {
+	fl := flag.NewFlagSet("", flag.ExitOnError)
+	tflag := fl.String("test", "", "flag for testing")
+
 	type fields struct {
 		cfg  Config
 		cmds map[string]Cmd
@@ -155,6 +159,38 @@ func TestApp_Run(t *testing.T) {
 				Action: func(config.TemporalConfig, map[string]string) {},
 			}}},
 			args{[]string{"hi", "bobhead", "postables"}},
+			true,
+		},
+		{
+			"should run with a flag on command",
+			fields{Config{}, map[string]Cmd{"hi": Cmd{
+				Options: fl,
+				Action: func(cfg config.TemporalConfig, flags map[string]string) {
+					defer func() {
+						*tflag = ""
+					}()
+					if *tflag == "" {
+						t.Error("expected flag 'test' to have value")
+					}
+				},
+			}}},
+			args{[]string{"hi", "--test", "wow"}},
+			true,
+		},
+		{
+			"should run with a missing flag on command",
+			fields{Config{}, map[string]Cmd{"hi": Cmd{
+				Options: fl,
+				Action: func(cfg config.TemporalConfig, flags map[string]string) {
+					defer func() {
+						*tflag = ""
+					}()
+					if *tflag != "" {
+						t.Error("expected flag 'test' to have no value")
+					}
+				},
+			}}},
+			args{[]string{"hi"}},
 			true,
 		},
 	}

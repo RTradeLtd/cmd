@@ -20,11 +20,12 @@ func run(commands map[string]Cmd, cfg config.TemporalConfig,
 	}
 
 	// parse options
-	if c.Options != nil {
-		if err := c.Options.Parse(args); err != nil {
+	if c.Options != nil && len(args) > 0 {
+		if err := c.Options.Parse(args[1:]); err != nil {
 			return true
 		}
 		args = c.Options.Args()
+		fmt.Printf("%v\n", args)
 	}
 
 	// check for action and children
