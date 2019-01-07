@@ -55,7 +55,7 @@ func New(cmds map[string]Cmd, cfg Config) *App {
 // PreRun walks the command tree and executes commands marked as "PreRun" - this
 // is useful for running commands that do not need configuration to be read,
 // for example the built-in "help" command.
-func (a *App) PreRun(args []string) int {
+func (a *App) PreRun(flags map[string]string, args []string) int {
 	if len(args) == 0 {
 		a.help(args)
 		return CodeOK
@@ -76,7 +76,11 @@ func (a *App) PreRun(args []string) int {
 		}
 	}
 
-	if noop := run(prerunCmds, config.TemporalConfig{}, nil, args, a.cfg.Options); noop {
+	if flags == nil {
+		flags = map[string]string{}
+	}
+
+	if noop := run(prerunCmds, config.TemporalConfig{}, flags, args, a.cfg.Options); noop {
 		return CodeNoOp
 	}
 	return CodeOK
