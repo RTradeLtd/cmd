@@ -6,7 +6,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/RTradeLtd/config"
+	"github.com/RTradeLtd/config/v2"
 )
 
 const (

@@ -1,5 +1,2 @@
-github.com/RTradeLtd/config v1.0.0/go.mod h1:FVv/bU49cFXT3MRNrPe1VztMBxHQW6MS/DHWqtxNiRc=
-github.com/RTradeLtd/config v1.0.15 h1:l/NSv5Y//tM5qFQLHk890lBwdQPFt5NH1PgDebDCJNQ=
-github.com/RTradeLtd/config v1.0.15/go.mod h1:FVv/bU49cFXT3MRNrPe1VztMBxHQW6MS/DHWqtxNiRc=
-github.com/RTradeLtd/config v2.0.5+incompatible h1:qShcZtJqSBT2MIM7WcD+IRSJhGdJDDmYWgMYk0RTKcg=
-github.com/RTradeLtd/config v2.0.5+incompatible/go.mod h1:FVv/bU49cFXT3MRNrPe1VztMBxHQW6MS/DHWqtxNiRc=
+github.com/RTradeLtd/config/v2 v2.2.0 h1:cstL7QEwG6UlOqJOS7zL854i9o27tqq5uf2uW5xOBrY=
+github.com/RTradeLtd/config/v2 v2.2.0/go.mod h1:juSzxBr84ZeNera4QtOZ7khT9AAtqvyPPn/rx2dgzp4=

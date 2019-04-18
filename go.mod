@@ -1,5 +1,5 @@
-module github.com/RTradeLtd/cmd
+module github.com/RTradeLtd/cmd/v2
 
 go 1.12
 
-require github.com/RTradeLtd/config v2.0.5+incompatible
+require github.com/RTradeLtd/config/v2 v2.2.0

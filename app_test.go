@@ -4,7 +4,7 @@ import (
 	"flag"
 	"testing"
 
-	"github.com/RTradeLtd/config"
+	"github.com/RTradeLtd/config/v2"
 )
 
 func TestNew(t *testing.T) {

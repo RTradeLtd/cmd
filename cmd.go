@@ -3,7 +3,7 @@ package cmd
 import (
 	"flag"
 
-	"github.com/RTradeLtd/config"
+	"github.com/RTradeLtd/config/v2"
 )
 
 // Cmd declares a command for a Temporal application.
