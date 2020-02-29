@@ -1,4 +1,4 @@
-> Deprecated: This is no longer maintained, and all projects will eventually be migrated to `urfave/cli`. 
+> **Deprecated: This is no longer maintained, and all projects will eventually be migrated to `urfave/cli`.  It is recommend that you use `urfave/cli` as opposed to `cmd` as it is a much more extensible, and feature complete system.**
 
 
 # 🐢 cmd [![GoDoc](https://godoc.org/github.com/RTradeLtd/cmd?status.svg)](https://godoc.org/github.com/RTradeLtd/cmd) [![Build Status](https://travis-ci.com/RTradeLtd/cmd.svg?branch=master)](https://travis-ci.com/RTradeLtd/cmd) [![codecov](https://codecov.io/gh/RTradeLtd/cmd/branch/master/graph/badge.svg)](https://codecov.io/gh/RTradeLtd/cmd) [![Go Report Card](https://goreportcard.com/badge/github.com/RTradeLtd/cmd)](https://goreportcard.com/report/github.com/RTradeLtd/cmd)
